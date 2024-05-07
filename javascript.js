@@ -1,11 +1,27 @@
-// Seleziona l'elemento dell'immagine
-let paneImage = document.getElementById("paneImage");
 
-// Visualizza l'immagine
-paneImage.classList.remove("hidden");
+    document.addEventListener("DOMContentLoaded", function() {
+        const cardContainers = document.querySelectorAll(".card-container");
 
-// Nascondi l'immagine dopo 10 secondi
-setTimeout(function() {
-  paneImage.classList.add("hidden");
-}, 10000); // 10000 millisecondi = 10 secondi
+        const sortedCards = Array.from(cardContainers).sort((a, b) => {
+            const titleA = a.querySelector("h3").innerText.toUpperCase();
+            const titleB = b.querySelector("h3").innerText.toUpperCase();
+            if (titleA < titleB) {
+                return -1;
+            }
+            if (titleA > titleB) {
+                return 1;
+            }
+            return 0;
+        });
+
+        const main = document.querySelector("main");
+
+        sortedCards.forEach(card => {
+            main.appendChild(card);
+        });
+    });
+
+    
+
+
 
