@@ -1,25 +1,40 @@
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const cardContainers = document.querySelectorAll(".card-container");
+const toggleButton = document.getElementById('toggleButton');
 
-        const sortedCards = Array.from(cardContainers).sort((a, b) => {
-            const titleA = a.querySelector("h3").innerText.toUpperCase();
-            const titleB = b.querySelector("h3").innerText.toUpperCase();
-            if (titleA < titleB) {
-                return -1;
-            }
-            if (titleA > titleB) {
-                return 1;
-            }
-            return 0;
-        });
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+  // Salva la preferenza dell'utente sul tema
+  const isDarkTheme = document.body.classList.contains('dark-theme');
+  localStorage.setItem('darkTheme', isDarkTheme);
+});
 
-        const main = document.querySelector("main");
+// Verifica se l'utente ha già scelto un tema prima
+const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
 
-        sortedCards.forEach(card => {
-            main.appendChild(card);
-        });
+if (isDarkTheme) {
+  document.body.classList.add('dark-theme');
+}
+
+document.getElementById('toggleButton').addEventListener('click', function() {
+    var button = document.getElementById('toggleButton');
+    if (button.style.backgroundColor === 'black') {
+        button.style.backgroundColor = 'initial'; // Cambia il colore di sfondo al valore iniziale
+    } else {
+        button.style.backgroundColor = 'black'; // Cambia il colore di sfondo in nero
+    }
+});
+
+document.querySelectorAll('.animated-text-strip').forEach(function(element) {
+    element.addEventListener('click', function() {
+        this.style.backgroundColor = 'black';
     });
+});
+
+
+
+
+
+
 
     
 
