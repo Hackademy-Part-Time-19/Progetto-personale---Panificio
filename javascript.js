@@ -30,6 +30,30 @@ document.querySelectorAll('.animated-text-strip').forEach(function(element) {
     });
 });
 
+/*CREAZIONE POP UP*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    setInterval(function() {
+        document.getElementById('popup').style.display = 'block';
+    }, 60000); // Mostra il popup ogni 10 secondi
+
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+    });
+});
+
+/*BLOCCO DISPLAY IN MODALITà SM*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    const body = document.querySelector('body');
+    const popup = document.getElementById('popup');
+
+    if (body.classList.contains('modal-sm')) {
+        popup.style.display = 'none';
+    }
+});
+
+
 
 
 

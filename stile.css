@@ -15,11 +15,13 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .card {
   position: relative;
   text-align: center;
+  margin: 5px;
 }
 
 .card img {
@@ -32,7 +34,7 @@
 
 .navbar-nav {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   width: 100%;
 }
@@ -62,6 +64,54 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+/*CREAZIONE POP UP*/
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  padding: 20px;
+  max-width: 80%;
+  width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 100px;
+  
+}
+
+
+
 
 
 
@@ -114,6 +164,14 @@ button {
     padding-bottom: 20px;
   }
 }
+
+/* Media query per schermi di dimensioni "sm" */
+@media only screen and (max-width: 600px) {
+  #popup {
+      display: none;
+  }
+}
+
 
 
 
